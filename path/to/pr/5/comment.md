@@ -1,0 +1,1 @@
+Please replace all instances of `212600000000` with `212778411421` so the WhatsApp number becomes `https://wa.me/212778411421`. This is the real WhatsApp number for the brand.
