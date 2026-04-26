@@ -73,9 +73,9 @@
       font-family: var(--font-ar);
       font-size: 12px;
       font-weight: 700;
-      color: #8B9E00;
-      border: 1px solid var(--accent);
-      padding: 4px 10px;
+      color: #111827;
+      background: var(--lime);
+      padding: 4px 12px;
       border-radius: 4px;
       margin-bottom: 18px;
     }
@@ -88,29 +88,30 @@
       font-size: 15px;
       font-weight: 700;
       padding: 13px 28px;
-      border-radius: var(--radius);
+      border-radius: 12px;
       border: none;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(200,255,0,0.3);
     }
 
-    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,255,0,0.4); }
 
     .btn-outline {
       display: inline-block;
       background: transparent;
-      color: #8B9E00;
+      color: #111827;
       font-family: var(--font-ar);
       font-size: 15px;
       font-weight: 600;
       padding: 13px 28px;
-      border-radius: var(--radius);
+      border-radius: 12px;
       border: 1px solid var(--accent);
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
     }
 
-    .btn-outline:hover { background: var(--accent); color: #111827; }
+    .btn-outline:hover { background: var(--accent); color: #111827; transform: translateY(-2px); }
 
     /* ===== URGENCY BAR ===== */
     .urgency-bar {
@@ -122,6 +123,18 @@
       font-weight: 700;
       text-align: center;
       padding: 10px 24px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .urgency-bar-inner {
+      display: inline-block;
+      animation: marquee-rtl 18s linear infinite;
+    }
+
+    @keyframes marquee-rtl {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(100vw); }
     }
 
     /* ===== NAVIGATION ===== */
@@ -152,8 +165,18 @@
       gap: 8px;
     }
 
+    .logo svg {
+      filter: drop-shadow(0 0 6px rgba(200,255,0,0.5));
+      animation: logo-pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes logo-pulse {
+      0%, 100% { filter: drop-shadow(0 0 4px rgba(200,255,0,0.4)); }
+      50%       { filter: drop-shadow(0 0 12px rgba(200,255,0,0.9)); }
+    }
+
     .logo-ai {
-      color: #8B9E00;
+      color: #C8FF00;
       font-family: var(--font-num);
       font-weight: 700;
     }
@@ -198,11 +221,19 @@
 
     /* ===== HERO SECTION ===== */
     .hero {
-      padding: 80px 0 72px;
+      padding: 100px 0 88px;
       border-bottom: 1px solid var(--border);
       text-align: center;
-      background: linear-gradient(135deg, #FAFAF8 0%, #FFFDE7 60%, #F4F4EE 100%);
+      background: linear-gradient(135deg, #FAFAF8 0%, #FFFDE7 45%, #F7FFD6 70%, #F4F4EE 100%);
+      background-size: 300% 300%;
+      animation: hero-gradient 8s ease infinite;
       position: relative;
+    }
+
+    @keyframes hero-gradient {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .hero::before {
@@ -234,17 +265,19 @@
     .h1-line1 {
       display: block;
       font-family: var(--font-num);
-      font-size: 52px;
+      font-size: 58px;
       font-weight: 700;
-      color: #8B9E00;
+      color: #C8FF00;
       letter-spacing: -0.02em;
+      text-shadow: 0 0 30px rgba(200,255,0,0.35);
     }
 
     .h1-line2 {
       display: block;
-      font-size: 44px;
+      font-size: 50px;
       font-weight: 800;
       color: var(--text-primary);
+      letter-spacing: -0.01em;
     }
 
     .hero-sub {
@@ -284,7 +317,7 @@
       color: var(--text-muted);
     }
 
-    .trust-badge .badge-dot { color: #8B9E00; }
+    .trust-badge .badge-dot { color: #C8FF00; }
 
     /* ===== STATS STRIP ===== */
     .stats-strip {
@@ -308,12 +341,13 @@
 
     .stat-number {
       font-family: var(--font-num);
-      font-size: 36px;
+      font-size: 44px;
       font-weight: 700;
       color: #C8FF00;
       display: block;
       line-height: 1.1;
       margin-bottom: 6px;
+      text-shadow: 0 0 20px rgba(200,255,0,0.5);
     }
 
     .stat-number.live {
@@ -391,7 +425,7 @@
 
     /* ===== SECTION SHARED ===== */
     .section {
-      padding: 80px 0;
+      padding: 100px 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -400,11 +434,12 @@
     .section-header { margin-bottom: 48px; }
 
     .section-header h2 {
-      font-size: 34px;
+      font-size: 36px;
       font-weight: 800;
       color: var(--text-primary);
       line-height: 1.25;
       margin-bottom: 12px;
+      letter-spacing: -0.01em;
     }
 
     .section-header p {
@@ -468,7 +503,7 @@
 
     .compare-card.featured .card-label {
       border-color: var(--accent);
-      color: #8B9E00;
+      color: #111827;
     }
 
     .compare-list {
@@ -494,7 +529,7 @@
     }
 
     .compare-list li .ci.cross { color: var(--danger); }
-    .compare-list li .ci.check { color: #8B9E00; }
+    .compare-list li .ci.check { color: #C8FF00; }
 
     /* ===== LEARN SECTION ===== */
     .learn-grid {
@@ -509,15 +544,15 @@
       border-radius: var(--radius);
       padding: 28px 24px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
-    .learn-card:hover { border-color: var(--border-h); }
+    .learn-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
 
     .learn-card-icon {
       font-family: var(--font-num);
       font-size: 14px;
-      color: #8B9E00;
+      color: #C8FF00;
       font-weight: 700;
       margin-bottom: 14px;
     }
@@ -551,10 +586,10 @@
       gap: 20px;
       align-items: flex-start;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
-    .community-card:hover { border-color: var(--border-h); }
+    .community-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
 
     .community-icon {
       width: 40px;
@@ -621,7 +656,10 @@
       flex-direction: column;
       position: relative;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
+
+    .pricing-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
 
     .pricing-card.popular { border: 2px solid var(--accent); box-shadow: 0 4px 24px rgba(200,255,0,0.15); }
 
@@ -697,7 +735,7 @@
     }
 
     .pricing-features li .pf-check {
-      color: #8B9E00;
+      color: #C8FF00;
       font-size: 13px;
       flex-shrink: 0;
       margin-top: 2px;
@@ -707,7 +745,7 @@
       display: block;
       text-align: center;
       padding: 13px;
-      border-radius: 6px;
+      border-radius: 12px;
       font-family: var(--font-ar);
       font-size: 15px;
       font-weight: 700;
@@ -715,10 +753,11 @@
       transition: all 0.2s;
       border: 1px solid var(--accent);
       background: transparent;
-      color: #8B9E00;
+      color: #111827;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    .pricing-cta:hover { background: var(--accent); color: #111827; }
+    .pricing-cta:hover { background: var(--accent); color: #111827; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(200,255,0,0.3); }
 
     .pricing-card.popular .pricing-cta {
       background: var(--accent);
@@ -738,7 +777,7 @@
     }
 
     .pricing-note span {
-      color: #8B9E00;
+      color: #111827;
       font-family: var(--font-num);
       font-weight: 600;
     }
@@ -773,7 +812,7 @@
       font-family: var(--font-ar);
       font-size: 12px;
       font-weight: 700;
-      color: #8B9E00;
+      color: #111827;
     }
 
     .founder-name {
@@ -840,7 +879,10 @@
       border-radius: var(--radius);
       padding: 28px 24px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
+
+    .testimonial-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); border-color: var(--border-h); }
 
     .testimonial-stars {
       color: #F59E0B;
@@ -928,7 +970,7 @@
 
     /* ===== CONTACT SECTION ===== */
     .contact-section {
-      padding: 80px 0;
+      padding: 100px 0;
       border-bottom: 1px solid rgba(200,255,0,0.2);
       background: #111827;
     }
@@ -955,8 +997,9 @@
     }
 
     .contact-left .section-label {
-      color: #C8FF00;
-      border-color: rgba(200,255,0,0.5);
+      color: #111827;
+      border-color: transparent;
+      background: #C8FF00;
     }
 
     .contact-form {
@@ -1013,20 +1056,21 @@
 
     .form-submit {
       width: 100%;
-      background: var(--accent);
-      color: #111827;
+      background: #25D366;
+      color: #fff;
       font-family: var(--font-ar);
       font-size: 16px;
       font-weight: 700;
       padding: 15px;
-      border-radius: 6px;
+      border-radius: 12px;
       border: none;
       cursor: pointer;
       margin-top: 8px;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 14px rgba(37,211,102,0.3);
     }
 
-    .form-submit:hover { background: var(--accent-dark); }
+    .form-submit:hover { background: #1eb256; transform: translateY(-1px); }
 
     .form-success {
       display: none;
@@ -1036,7 +1080,7 @@
       padding: 14px 16px;
       text-align: center;
       font-size: 14px;
-      color: #8B9E00;
+      color: #111827;
       font-weight: 600;
       margin-top: 12px;
     }
@@ -1056,16 +1100,21 @@
       color: #9CA3AF;
     }
 
+    .footer-brand .logo {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .footer-brand .logo-ai {
+      color: #C8FF00;
+    }
+
     .footer-top {
       display: grid;
       grid-template-columns: 280px 1fr 220px;
       gap: 48px;
       margin-bottom: 48px;
-    }
-
-    .footer-brand .logo {
-      font-size: 22px;
-      margin-bottom: 12px;
     }
 
     .footer-tagline {
@@ -1170,8 +1219,9 @@
     }
 
     #founder .section-label {
-      color: #C8FF00;
-      border-color: rgba(200,255,0,0.5);
+      color: #111827;
+      background: #C8FF00;
+      border-color: transparent;
     }
 
     #founder .section-header h2 { color: #FFFFFF; }
@@ -1269,8 +1319,8 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
-      .h1-line1 { font-size: 42px; }
-      .h1-line2 { font-size: 36px; }
+      .h1-line1 { font-size: 46px; }
+      .h1-line2 { font-size: 40px; }
 
       .founder-grid {
         grid-template-columns: 240px 1fr;
@@ -1297,8 +1347,8 @@
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
 
-      .h1-line1 { font-size: 34px; }
-      .h1-line2 { font-size: 28px; }
+      .h1-line1 { font-size: 36px; }
+      .h1-line2 { font-size: 30px; }
 
       .hero { padding: 56px 0 48px; }
       .hero-ctas { flex-direction: column; align-items: center; }
@@ -1333,7 +1383,7 @@
 
   <!-- ===== URGENCY BAR ===== -->
   <div class="urgency-bar">
-    أول War Room للذكاء الاصطناعي في المنطقة العربية — مقاعد الدفعة القادمة محدودة — سجّل الآن
+    <span class="urgency-bar-inner">⚡ أول War Room للذكاء الاصطناعي في المنطقة العربية — مقاعد الدفعة القادمة محدودة — سجّل الآن &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; ⚡ أول War Room للذكاء الاصطناعي في المنطقة العربية — مقاعد الدفعة القادمة محدودة — سجّل الآن</span>
   </div>
 
   <!-- ===== NAVIGATION ===== -->
@@ -1352,7 +1402,7 @@
         <li><a href="#founder">المؤسس</a></li>
         <li><a href="#faq">أسئلة</a></li>
       </ul>
-      <a href="#contact" class="btn-primary nav-cta">احجز مقعدك</a>
+      <a href="https://wa.me/212778411421" target="_blank" rel="noopener noreferrer" class="btn-primary nav-cta">احجز مقعدك</a>
       <button class="nav-toggle" aria-label="القائمة">
         <span></span><span></span><span></span>
       </button>
@@ -1371,7 +1421,7 @@
           أول مجتمع وحلقة عمل مباشرة للذكاء الاصطناعي في منطقة MENA. تعلّم، طبّق، واكسب. الذكاء الاصطناعي يتحرك بسرعة — الوظائف في خطر — هل أنت مستعد؟
         </p>
         <div class="hero-ctas">
-          <a href="#contact" class="btn-primary">احجز مقعدك الآن</a>
+          <a href="https://wa.me/212778411421" target="_blank" rel="noopener noreferrer" class="btn-primary">احجز مقعدك الآن</a>
           <a href="#pricing" class="btn-outline">تعرّف على الخطط</a>
         </div>
       </div>
@@ -1417,7 +1467,7 @@
         <span class="warning-tag">[تحذير]</span>
         <div class="warning-content">
           <h3>الذكاء الاصطناعي يُلغي وظائف حقيقية — الآن</h3>
-          <p>المحاسبون، المصممون، المترجمون، خدمة العملاء — الذكاء الاصطناعي يستبدلهم اليوم. السؤال ليس إذا — بل متى. War Room يجعلك أنت صاحب AI لا ضحيته.</p>
+          <p>المحاسبون، المصممون، المترجمون، خدمة العملاء — الذكاء الاصطناعي يستبدلهم اليوم. السؤال ليس إذا — بل متى. فوري يجعلك أنت صاحب AI لا ضحيته.</p>
         </div>
       </div>
     </div>
@@ -1428,7 +1478,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">لماذا فوري AI؟</span>
-        <h2>لماذا تختار War Room بدلاً من كورس عادي؟</h2>
+        <h2>لماذا تختار فوري بدلاً من كورس عادي؟</h2>
         <p>هل مللت من الكورسات التي لا تحقق نتائج؟</p>
       </div>
       <div class="why-grid">
@@ -1510,7 +1560,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">المجتمع</span>
-        <h2>انضم لـ War Room</h2>
+        <h2>انضم لـ فوري</h2>
         <p>أكثر من تعليم — بيئة كاملة للنمو والتطبيق والكسب</p>
       </div>
       <div class="community-grid">
@@ -1520,7 +1570,7 @@
           </div>
           <div class="community-card-body">
             <h3>جلسات مباشرة أسبوعية</h3>
-            <p>جلسات War Room مباشرة كل أسبوع مع وهيب. تطبيق حي، أسئلة فورية، وتغذية راجعة في الوقت الفعلي.</p>
+            <p>جلسات فوري المباشرة كل أسبوع مع وهيب. تطبيق حي، أسئلة فورية، وتغذية راجعة في الوقت الفعلي.</p>
           </div>
         </div>
         <div class="community-card">
@@ -1528,8 +1578,8 @@
             <div class="icon-shape"></div>
           </div>
           <div class="community-card-body">
-            <h3>مجتمع War Room الخاص</h3>
-            <p>مجموعة خاصة حصرية لأعضاء War Room. تواصل، تعاون، وتبادل الفرص مع نخبة من المحترفين.</p>
+            <h3>مجتمع فوري الخاص</h3>
+            <p>مجموعة خاصة حصرية لأعضاء فوري. تواصل، تعاون، وتبادل الفرص مع نخبة من المحترفين.</p>
           </div>
         </div>
         <div class="community-card">
@@ -1634,7 +1684,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">المؤسس</span>
-        <h2>من يقود War Room؟</h2>
+        <h2>من يقود فوري؟</h2>
       </div>
       <div class="founder-grid">
         <div class="founder-photo-wrap">
@@ -1671,7 +1721,7 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"War Room غيّر نظرتي للذكاء الاصطناعي تماماً. لم أكن أظن أنني قادر على استخدام هذه الأدوات في عملي اليومي. بعد شهر واحد أصبحت أوفّر أكثر من 15 ساعة أسبوعياً بفضل الأتمتة."</p>
+          <p class="testimonial-quote">"فوري غيّر نظرتي للذكاء الاصطناعي تماماً. لم أكن أظن أنني قادر على استخدام هذه الأدوات في عملي اليومي. بعد شهر واحد أصبحت أوفّر أكثر من 15 ساعة أسبوعياً بفضل الأتمتة."</p>
           <div class="testimonial-author">
             <div class="testimonial-name">خالد العمري</div>
             <div class="testimonial-location">الرياض، المملكة العربية السعودية</div>
@@ -1687,7 +1737,7 @@
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"كنت أبحث عن مجتمع عربي متخصص في AI لفترة طويلة. War Room هو بالضبط ما كنت أحتاجه. المحتوى بالعربية الفصحى، عملي تماماً، والمؤسس متاح للإجابة على كل استفساراتي."</p>
+          <p class="testimonial-quote">"كنت أبحث عن مجتمع عربي متخصص في AI لفترة طويلة. فوري هو بالضبط ما كنت أحتاجه. المحتوى بالعربية الفصحى، عملي تماماً، والمؤسس متاح للإجابة على كل استفساراتي."</p>
           <div class="testimonial-author">
             <div class="testimonial-name">يوسف بنعلي</div>
             <div class="testimonial-location">الدار البيضاء، المغرب</div>
@@ -1751,7 +1801,7 @@
       <div class="contact-grid">
         <div class="contact-left">
           <span class="section-label">سجّل الآن</span>
-          <h2>ابدأ رحلتك في War Room</h2>
+          <h2>ابدأ رحلتك في فوري</h2>
           <p>انضم لأول War Room للذكاء الاصطناعي في المنطقة العربية وابدأ تطبيق الذكاء الاصطناعي من اليوم الأول.</p>
           <br>
           <p style="color: var(--text-muted); font-size: 14px; margin-top: 8px;">للتواصل عبر واتساب مباشرة:</p>
@@ -1760,21 +1810,22 @@
           </a>
         </div>
         <div class="contact-form">
+          <form id="contact-form" onsubmit="sendWhatsApp(event)">
           <div class="form-group">
-            <label for="c-name">الاسم الكامل</label>
-            <input type="text" id="c-name" placeholder="أدخل اسمك الكامل">
+            <label for="c-name">الاسم الكامل *</label>
+            <input type="text" id="c-name" placeholder="أدخل اسمك الكامل" required>
           </div>
           <div class="form-group">
-            <label for="c-email">البريد الإلكتروني</label>
-            <input type="email" id="c-email" placeholder="example@email.com">
+            <label for="c-phone">رقم الهاتف (واتساب / اتصال) *</label>
+            <input type="tel" id="c-phone" placeholder="+212 6XX XXX XXX" required>
           </div>
           <div class="form-group">
-            <label for="c-phone">رقم الهاتف (واتساب / اتصال)</label>
-            <input type="tel" id="c-phone" placeholder="+212 6XX XXX XXX">
+            <label for="c-email">البريد الإلكتروني *</label>
+            <input type="email" id="c-email" placeholder="example@email.com" required>
           </div>
           <div class="form-group">
-            <label for="c-country">الدولة</label>
-            <select id="c-country">
+            <label for="c-country">الدولة *</label>
+            <select id="c-country" required>
               <option value="" disabled selected>اختر دولتك</option>
               <option value="المغرب">المغرب</option>
               <option value="السعودية">السعودية</option>
@@ -1796,11 +1847,24 @@
               <option value="أخرى">أخرى</option>
             </select>
           </div>
-          <button type="button" class="form-submit" onclick="sendWhatsApp()">تواصل عبر واتساب ←</button>
+          <div class="form-group">
+            <label for="c-goal">الهدف من الانضمام *</label>
+            <select id="c-goal" required>
+              <option value="" disabled selected>اختر هدفك</option>
+              <option value="تعلم الذكاء الاصطناعي من الصفر">تعلم الذكاء الاصطناعي من الصفر</option>
+              <option value="كسب دخل إضافي من AI">كسب دخل إضافي من AI</option>
+              <option value="تحسين إنتاجيتي في العمل">تحسين إنتاجيتي في العمل</option>
+              <option value="بناء مشروع أو خدمة بالذكاء الاصطناعي">بناء مشروع أو خدمة بالذكاء الاصطناعي</option>
+              <option value="مجاراة تطور AI والحفاظ على وظيفتي">مجاراة تطور AI والحفاظ على وظيفتي</option>
+              <option value="هدف آخر">هدف آخر</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">📱 تواصل عبر واتساب ←</button>
           <div class="form-success" id="formSuccess">
             تم! سيتم تحويلك إلى واتساب. سنرد عليك خلال ساعتين.
           </div>
           <p class="form-note">سنتواصل معك في أقرب وقت · بدون ضغط · بدون التزام مسبق</p>
+          </form>
         </div>
       </div>
     </div>
@@ -1887,18 +1951,22 @@
 
   <script>
     /* WhatsApp form handler */
-    function sendWhatsApp() {
+    function sendWhatsApp(e) {
+      if (e) e.preventDefault();
       var name    = document.getElementById('c-name').value.trim();
       var email   = document.getElementById('c-email').value.trim();
       var phone   = document.getElementById('c-phone').value.trim();
       var sel     = document.getElementById('c-country');
       var country = sel.options[sel.selectedIndex] ? sel.options[sel.selectedIndex].value : '';
+      var gSel    = document.getElementById('c-goal');
+      var goal    = gSel.options[gSel.selectedIndex] ? gSel.options[gSel.selectedIndex].value : '';
 
-      var msg = 'السلام عليكم،\n\nأريد الانضمام إلى War Room فوري AI.\n\n';
+      var msg = 'السلام عليكم،\n\nأريد الانضمام إلى فوري AI War Room.\n\n';
       if (name)    msg += 'الاسم: '               + name    + '\n';
-      if (email)   msg += 'البريد الإلكتروني: '    + email   + '\n';
       if (phone)   msg += 'رقم الهاتف: '          + phone   + '\n';
+      if (email)   msg += 'البريد الإلكتروني: '    + email   + '\n';
       if (country) msg += 'الدولة: '              + country + '\n';
+      if (goal)    msg += 'الهدف من الانضمام: '   + goal    + '\n';
 
       document.getElementById('formSuccess').style.display = 'block';
 
