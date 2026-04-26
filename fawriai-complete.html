@@ -21,8 +21,11 @@
     }
 
     :root {
-      --bg:          #FFFFFF;
-      --surface:     #F8F9FA;
+      --bg:          #FAFAF8;
+      --bg-surface:  #F4F4EE;
+      --bg-card:     #FFFFFF;
+      --bg-accent:   #FFFDE7;
+      --surface:     #F4F4EE;
       --border:      #E5E7EB;
       --border-h:    #D1D5DB;
       --lime:        #C8FF00;
@@ -45,6 +48,7 @@
     html { scroll-behavior: smooth; }
 
     body {
+      border-top: 3px solid #C8FF00;
       background-color: var(--bg);
       color: var(--text-body);
       font-family: var(--font-ar);
@@ -110,9 +114,9 @@
 
     /* ===== URGENCY BAR ===== */
     .urgency-bar {
-      background: #FAFFC0;
+      background: #111827;
       border-bottom: 2px solid #C8FF00;
-      color: #3A5000;
+      color: #C8FF00;
       font-family: var(--font-ar);
       font-size: 13px;
       font-weight: 700;
@@ -197,6 +201,22 @@
       padding: 80px 0 72px;
       border-bottom: 1px solid var(--border);
       text-align: center;
+      background: linear-gradient(135deg, #FAFAF8 0%, #FFFDE7 60%, #F4F4EE 100%);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(200,255,0,0.03) 40px,
+        rgba(200,255,0,0.03) 41px
+      );
+      pointer-events: none;
     }
 
     .hero-inner {
@@ -268,8 +288,8 @@
 
     /* ===== STATS STRIP ===== */
     .stats-strip {
-      background: #fff;
-      border-bottom: 1px solid var(--border);
+      background: #111827;
+      border-bottom: 1px solid rgba(200,255,0,0.2);
       padding: 32px 0;
     }
 
@@ -281,7 +301,7 @@
     .stat-item {
       text-align: center;
       padding: 16px 24px;
-      border-left: 1px solid var(--border);
+      border-left: 1px solid rgba(255,255,255,0.1);
     }
 
     .stat-item:last-child { border-left: none; }
@@ -290,7 +310,7 @@
       font-family: var(--font-num);
       font-size: 36px;
       font-weight: 700;
-      color: #8B9E00;
+      color: #C8FF00;
       display: block;
       line-height: 1.1;
       margin-bottom: 6px;
@@ -322,7 +342,7 @@
       font-family: var(--font-ar);
       font-size: 13px;
       font-weight: 500;
-      color: var(--text-muted);
+      color: #D1D5DB;
     }
 
     /* ===== WARNING BOX ===== */
@@ -603,7 +623,7 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
 
-    .pricing-card.popular { border-color: var(--accent); }
+    .pricing-card.popular { border: 2px solid var(--accent); box-shadow: 0 4px 24px rgba(200,255,0,0.15); }
 
     .popular-badge {
       position: absolute;
@@ -909,8 +929,8 @@
     /* ===== CONTACT SECTION ===== */
     .contact-section {
       padding: 80px 0;
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
+      border-bottom: 1px solid rgba(200,255,0,0.2);
+      background: #111827;
     }
 
     .contact-grid {
@@ -923,15 +943,20 @@
     .contact-left h2 {
       font-size: 36px;
       font-weight: 800;
-      color: var(--text-primary);
+      color: #FFFFFF;
       line-height: 1.2;
       margin-bottom: 14px;
     }
 
     .contact-left p {
       font-size: 16px;
-      color: var(--text-body);
+      color: #D1D5DB;
       line-height: 1.7;
+    }
+
+    .contact-left .section-label {
+      color: #C8FF00;
+      border-color: rgba(200,255,0,0.5);
     }
 
     .contact-form {
@@ -1005,13 +1030,13 @@
 
     .form-success {
       display: none;
-      background: #F0FDF4;
-      border: 1px solid #86EFAC;
+      background: #F9FFD6;
+      border: 1px solid #C8FF00;
       border-radius: 6px;
       padding: 14px 16px;
       text-align: center;
       font-size: 14px;
-      color: #14532D;
+      color: #8B9E00;
       font-weight: 600;
       margin-top: 12px;
     }
@@ -1026,8 +1051,9 @@
     /* ===== FOOTER ===== */
     footer {
       padding: 64px 0 32px;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
+      background: #0D0D0D;
+      border-top: 1px solid #1A1A1A;
+      color: #9CA3AF;
     }
 
     .footer-top {
@@ -1044,7 +1070,7 @@
 
     .footer-tagline {
       font-size: 13px;
-      color: var(--text-muted);
+      color: #9CA3AF;
       line-height: 1.65;
       max-width: 240px;
     }
@@ -1053,7 +1079,7 @@
     .footer-social-heading {
       font-size: 12px;
       font-weight: 700;
-      color: var(--text-muted);
+      color: #6B7280;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 16px;
@@ -1068,11 +1094,11 @@
 
     .footer-links a {
       font-size: 14px;
-      color: var(--text-muted);
+      color: #9CA3AF;
       transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: var(--text-primary); }
+    .footer-links a:hover { color: #C8FF00; }
 
     .social-links {
       display: flex;
@@ -1085,17 +1111,17 @@
       align-items: center;
       gap: 8px;
       font-size: 14px;
-      color: var(--text-muted);
+      color: #9CA3AF;
       transition: color 0.2s;
     }
 
-    .social-link:hover { color: #8B9E00; }
+    .social-link:hover { color: #C8FF00; }
 
     .social-icon {
       width: 28px;
       height: 28px;
-      background: #fff;
-      border: 1px solid var(--border);
+      background: #1A1A1A;
+      border: 1px solid #2D2D2D;
       border-radius: 4px;
       display: flex;
       align-items: center;
@@ -1107,7 +1133,7 @@
     }
 
     .footer-bottom {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #2D2D2D;
       padding-top: 24px;
       display: flex;
       align-items: center;
@@ -1118,13 +1144,97 @@
 
     .footer-copyright {
       font-size: 13px;
-      color: var(--text-muted);
+      color: #6B7280;
     }
 
     .footer-bottom-tag {
       font-size: 12px;
-      color: var(--text-muted);
+      color: #6B7280;
       font-family: var(--font-num);
+    }
+
+    .footer-legal {
+      border-top: 1px solid #2D2D2D;
+      padding-top: 20px;
+      margin-top: 20px;
+      font-size: 11px;
+      color: #6B7280;
+      line-height: 1.7;
+      max-width: 700px;
+    }
+
+    /* ===== FOUNDER DARK SECTION ===== */
+    #founder {
+      background: #111827;
+      border-bottom: 1px solid rgba(200,255,0,0.2);
+    }
+
+    #founder .section-label {
+      color: #C8FF00;
+      border-color: rgba(200,255,0,0.5);
+    }
+
+    #founder .section-header h2 { color: #FFFFFF; }
+
+    #founder .founder-name {
+      color: #C8FF00;
+    }
+
+    #founder .founder-title { color: #D1D5DB; }
+
+    #founder .founder-bio,
+    #founder .founder-bio p { color: #D1D5DB; }
+
+    #founder .cred-badge {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+      color: #D1D5DB;
+    }
+
+    #founder .founder-photo-badge {
+      background: rgba(0,0,0,0.7);
+      border-color: rgba(255,255,255,0.2);
+      color: #C8FF00;
+    }
+
+    #founder .founder-photo-wrap img {
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    /* ===== NO REFUND NOTICE ===== */
+    .pkg-no-refund {
+      font-size: 11px;
+      color: #9CA3AF;
+      text-align: center;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ===== WAR ROOM BADGES ===== */
+    .warroom-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #111827;
+      color: #C8FF00;
+      border: 1px solid #C8FF00;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: #DC2626;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
     }
 
     /* ===== WHATSAPP FLOAT ===== */
@@ -1194,7 +1304,7 @@
       .hero-ctas { flex-direction: column; align-items: center; }
 
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-item { border-bottom: 1px solid var(--border); }
+      .stat-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
       .stat-item:nth-child(odd) { border-left: none; }
       .stat-item:nth-last-child(-n+2) { border-bottom: none; }
 
@@ -1445,7 +1555,7 @@
   </section>
 
   <!-- ===== PRICING SECTION ===== -->
-  <section class="section alt-bg" id="pricing">
+  <section class="section" id="pricing">
     <div class="container">
       <div class="section-header">
         <span class="section-label">الأسعار</span>
@@ -1469,6 +1579,7 @@
             <li><span class="pf-check">◆</span><span>المواد والموارد الأساسية</span></li>
           </ul>
           <a href="https://wa.me/212778411421?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20Spark%20%D8%A8%D9%80%20190%20MAD" target="_blank" rel="noopener noreferrer" class="pricing-cta" aria-label="احجز باقة Spark بـ 190 MAD عبر واتساب">ابدأ الآن</a>
+          <p class="pkg-no-refund">لا يوجد استرداد للمبلغ بعد الانضمام — تأكد من قرارك قبل الدفع.</p>
         </div>
 
         <!-- STARTER -->
@@ -1489,6 +1600,7 @@
             <li><span class="pf-check">◆</span><span>أولوية في الإجابة والمتابعة</span></li>
           </ul>
           <a href="https://wa.me/212778411421?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20Starter%20%D8%A8%D9%80%20390%20MAD" target="_blank" rel="noopener noreferrer" class="pricing-cta" aria-label="احجز باقة Starter بـ 390 MAD عبر واتساب">احجز الآن</a>
+          <p class="pkg-no-refund">لا يوجد استرداد للمبلغ بعد الانضمام — تأكد من قرارك قبل الدفع.</p>
         </div>
 
         <!-- GROWTH -->
@@ -1508,6 +1620,7 @@
             <li><span class="pf-check">◆</span><span>استشارات استراتيجية مخصصة</span></li>
           </ul>
           <a href="https://wa.me/212778411421?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20Growth%20%D8%A8%D9%80%20590%20MAD" target="_blank" rel="noopener noreferrer" class="pricing-cta" aria-label="احجز باقة Growth بـ 590 MAD عبر واتساب">احجز الآن</a>
+          <p class="pkg-no-refund">لا يوجد استرداد للمبلغ بعد الانضمام — تأكد من قرارك قبل الدفع.</p>
         </div>
       </div>
       <div class="pricing-note">
@@ -1585,7 +1698,7 @@
   </section>
 
   <!-- ===== FAQ SECTION ===== -->
-  <section class="section" id="faq">
+  <section class="section alt-bg" id="faq">
     <div class="container">
       <div class="section-header">
         <span class="section-label">أسئلة شائعة</span>
@@ -1607,7 +1720,7 @@
         <details>
           <summary>ما طرق الدفع المتاحة؟</summary>
           <div class="faq-answer">
-            نقبل: <strong>PayPal</strong>، بطاقات <strong>Visa/Mastercard</strong> (Credit/Debit)، <strong>Gumroad</strong> (رابط قريباً)، والتحويل البنكي (للمغرب فقط). للدفع أو الاستفسار تواصل معنا على واتساب أو عبر البريد الإلكتروني: contact@fawriai.com
+            نقبل طرق الدفع التالية: <strong>PayPal</strong>، بطاقات <strong>Visa / Mastercard</strong> (ائتمانية أو مدينة)، والتحويل البنكي المباشر (للمغرب فقط). سيتم إرسال تفاصيل الدفع عبر واتساب بعد تسجيل اهتمامك. للاستفسار: contact@fawriai.com
           </div>
         </details>
         <details>
@@ -1733,6 +1846,14 @@
             </a>
           </div>
         </div>
+      </div>
+      <div class="footer-legal">
+        <p>
+          <strong>سياسة البيانات والخصوصية:</strong>
+          يستخدم هذا الموقع أدوات تحليل وتتبع مثل Google Analytics وFacebook Pixel لتحسين تجربة المستخدم وأغراض التسويق. بزيارتك لهذا الموقع، فإنك توافق على جمع بيانات تصفح مجهولة الهوية وفق سياسة الخصوصية المعمول بها. لا نبيع بياناتك الشخصية لأطراف ثالثة.
+          <a href="mailto:contact@fawriai.com" style="color:#C8FF00">تواصل معنا</a> لأي استفسار متعلق ببياناتك.
+          جميع المبيعات نهائية — لا يتم استرداد المبالغ المدفوعة بعد الانضمام إلى البرنامج.
+        </p>
       </div>
       <div class="footer-bottom">
         <span class="footer-copyright">© 2026 فوري AI · Fawri AI. جميع الحقوق محفوظة.</span>
