@@ -25,8 +25,13 @@
       --surface:     #F8F9FA;
       --border:      #E5E7EB;
       --border-h:    #D1D5DB;
-      --accent:      #16A34A;
-      --accent-dark: #15803D;
+      --lime:        #C8FF00;
+      --lime-dim:    #A3D100;
+      --lime-glow:   rgba(200,255,0,0.15);
+      --violet:      #7C3AED;
+      --violet-lt:   #A855F7;
+      --accent:      #C8FF00;
+      --accent-dark: #A3D100;
       --text-primary:#111827;
       --text-body:   #374151;
       --text-muted:  #6B7280;
@@ -64,7 +69,7 @@
       font-family: var(--font-ar);
       font-size: 12px;
       font-weight: 700;
-      color: var(--accent);
+      color: #8B9E00;
       border: 1px solid var(--accent);
       padding: 4px 10px;
       border-radius: 4px;
@@ -74,7 +79,7 @@
     .btn-primary {
       display: inline-block;
       background: var(--accent);
-      color: #fff;
+      color: #111827;
       font-family: var(--font-ar);
       font-size: 15px;
       font-weight: 700;
@@ -90,7 +95,7 @@
     .btn-outline {
       display: inline-block;
       background: transparent;
-      color: var(--accent);
+      color: #8B9E00;
       font-family: var(--font-ar);
       font-size: 15px;
       font-weight: 600;
@@ -101,13 +106,13 @@
       transition: background 0.2s, color 0.2s;
     }
 
-    .btn-outline:hover { background: var(--accent); color: #fff; }
+    .btn-outline:hover { background: var(--accent); color: #111827; }
 
     /* ===== URGENCY BAR ===== */
     .urgency-bar {
-      background: #F0FDF4;
-      border-bottom: 2px solid #16A34A;
-      color: #14532D;
+      background: #FAFFC0;
+      border-bottom: 2px solid #C8FF00;
+      color: #3A5000;
       font-family: var(--font-ar);
       font-size: 13px;
       font-weight: 700;
@@ -144,7 +149,7 @@
     }
 
     .logo-ai {
-      color: var(--accent);
+      color: #8B9E00;
       font-family: var(--font-num);
       font-weight: 700;
     }
@@ -211,7 +216,7 @@
       font-family: var(--font-num);
       font-size: 52px;
       font-weight: 700;
-      color: var(--accent);
+      color: #8B9E00;
       letter-spacing: -0.02em;
     }
 
@@ -259,7 +264,7 @@
       color: var(--text-muted);
     }
 
-    .trust-badge .badge-dot { color: var(--accent); }
+    .trust-badge .badge-dot { color: #8B9E00; }
 
     /* ===== STATS STRIP ===== */
     .stats-strip {
@@ -285,7 +290,7 @@
       font-family: var(--font-num);
       font-size: 36px;
       font-weight: 700;
-      color: var(--accent);
+      color: #8B9E00;
       display: block;
       line-height: 1.1;
       margin-bottom: 6px;
@@ -402,8 +407,8 @@
     }
 
     .compare-card.featured {
-      background: #F0FDF4;
-      border-color: #86EFAC;
+      background: rgba(200,255,0,0.06);
+      border-color: #C8FF00;
       position: relative;
     }
 
@@ -413,7 +418,7 @@
       top: -1px;
       right: -1px;
       background: var(--accent);
-      color: #fff;
+      color: #111827;
       font-family: var(--font-ar);
       font-size: 11px;
       font-weight: 700;
@@ -443,7 +448,7 @@
 
     .compare-card.featured .card-label {
       border-color: var(--accent);
-      color: var(--accent);
+      color: #8B9E00;
     }
 
     .compare-list {
@@ -469,7 +474,7 @@
     }
 
     .compare-list li .ci.cross { color: var(--danger); }
-    .compare-list li .ci.check { color: var(--accent); }
+    .compare-list li .ci.check { color: #8B9E00; }
 
     /* ===== LEARN SECTION ===== */
     .learn-grid {
@@ -492,7 +497,7 @@
     .learn-card-icon {
       font-family: var(--font-num);
       font-size: 14px;
-      color: var(--accent);
+      color: #8B9E00;
       font-weight: 700;
       margin-bottom: 14px;
     }
@@ -542,8 +547,8 @@
     }
 
     .community-icon.lime {
-      background: rgba(22,163,74,0.1);
-      border: 1px solid rgba(22,163,74,0.3);
+      background: rgba(200,255,0,0.12);
+      border: 1px solid rgba(200,255,0,0.35);
     }
 
     .community-icon.red {
@@ -605,7 +610,7 @@
       top: -1px;
       right: -1px;
       background: var(--accent);
-      color: #fff;
+      color: #111827;
       font-family: var(--font-ar);
       font-size: 11px;
       font-weight: 700;
@@ -672,7 +677,7 @@
     }
 
     .pricing-features li .pf-check {
-      color: var(--accent);
+      color: #8B9E00;
       font-size: 13px;
       flex-shrink: 0;
       margin-top: 2px;
@@ -690,14 +695,14 @@
       transition: all 0.2s;
       border: 1px solid var(--accent);
       background: transparent;
-      color: var(--accent);
+      color: #8B9E00;
     }
 
-    .pricing-cta:hover { background: var(--accent); color: #fff; }
+    .pricing-cta:hover { background: var(--accent); color: #111827; }
 
     .pricing-card.popular .pricing-cta {
       background: var(--accent);
-      color: #fff;
+      color: #111827;
     }
 
     .pricing-card.popular .pricing-cta:hover { background: var(--accent-dark); }
@@ -713,7 +718,7 @@
     }
 
     .pricing-note span {
-      color: var(--accent);
+      color: #8B9E00;
       font-family: var(--font-num);
       font-weight: 600;
     }
@@ -748,7 +753,7 @@
       font-family: var(--font-ar);
       font-size: 12px;
       font-weight: 700;
-      color: var(--accent);
+      color: #8B9E00;
     }
 
     .founder-name {
@@ -984,7 +989,7 @@
     .form-submit {
       width: 100%;
       background: var(--accent);
-      color: #fff;
+      color: #111827;
       font-family: var(--font-ar);
       font-size: 16px;
       font-weight: 700;
@@ -1084,7 +1089,7 @@
       transition: color 0.2s;
     }
 
-    .social-link:hover { color: var(--accent); }
+    .social-link:hover { color: #8B9E00; }
 
     .social-icon {
       width: 28px;
@@ -1226,7 +1231,7 @@
     <div class="nav-inner">
       <a href="#" class="logo">
         <svg width="28" height="32" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 0L0 18H12L10 32L28 12H16L16 0Z" fill="#16A34A"/>
+          <path d="M16 0L0 18H12L10 32L28 12H16L16 0Z" fill="#C8FF00"/>
         </svg>
         فوري <span class="logo-ai">AI</span>
       </a>
@@ -1452,10 +1457,10 @@
         <div class="pricing-card">
           <div class="pricing-plan-name">SPARK</div>
           <div class="pricing-price">
-            <span class="amount">1,990</span>
+            <span class="amount">190</span>
             <span class="currency">MAD</span>
           </div>
-          <div class="pricing-conversions">≈ 746 SAR · ≈ 730 AED ($199)</div>
+          <div class="pricing-conversions">≈ 71 SAR · ≈ 70 AED</div>
           <div class="pricing-period">دفعة واحدة · وصول لمدة شهر</div>
           <ul class="pricing-features">
             <li><span class="pf-check">◆</span><span>جلسة War Room أسبوعية مباشرة</span></li>
@@ -1463,7 +1468,7 @@
             <li><span class="pf-check">◆</span><span>مجموعة المجتمع الخاصة</span></li>
             <li><span class="pf-check">◆</span><span>المواد والموارد الأساسية</span></li>
           </ul>
-          <a href="#contact" class="pricing-cta">ابدأ الآن</a>
+          <a href="https://wa.me/212778411421?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20Spark%20%D8%A8%D9%80%20190%20MAD" target="_blank" rel="noopener noreferrer" class="pricing-cta" aria-label="احجز باقة Spark بـ 190 MAD عبر واتساب">ابدأ الآن</a>
         </div>
 
         <!-- STARTER -->
@@ -1471,10 +1476,10 @@
           <div class="popular-badge">الأكثر شيوعاً</div>
           <div class="pricing-plan-name">STARTER</div>
           <div class="pricing-price">
-            <span class="amount">3,990</span>
+            <span class="amount">390</span>
             <span class="currency">MAD</span>
           </div>
-          <div class="pricing-conversions">≈ 1,496 SAR · ≈ 1,465 AED ($399)</div>
+          <div class="pricing-conversions">≈ 146 SAR · ≈ 143 AED</div>
           <div class="pricing-period">دفعة واحدة · وصول لثلاثة أشهر</div>
           <ul class="pricing-features">
             <li><span class="pf-check">◆</span><span>كل ما في SPARK</span></li>
@@ -1483,17 +1488,17 @@
             <li><span class="pf-check">◆</span><span>دعم مباشر من المؤسس</span></li>
             <li><span class="pf-check">◆</span><span>أولوية في الإجابة والمتابعة</span></li>
           </ul>
-          <a href="#contact" class="pricing-cta">احجز الآن</a>
+          <a href="https://wa.me/212778411421?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20Starter%20%D8%A8%D9%80%20390%20MAD" target="_blank" rel="noopener noreferrer" class="pricing-cta" aria-label="احجز باقة Starter بـ 390 MAD عبر واتساب">احجز الآن</a>
         </div>
 
         <!-- GROWTH -->
         <div class="pricing-card">
           <div class="pricing-plan-name">GROWTH</div>
           <div class="pricing-price">
-            <span class="amount">5,990</span>
+            <span class="amount">590</span>
             <span class="currency">MAD</span>
           </div>
-          <div class="pricing-conversions">≈ 2,246 SAR · ≈ 2,198 AED ($599)</div>
+          <div class="pricing-conversions">≈ 221 SAR · ≈ 217 AED</div>
           <div class="pricing-period">دفعة واحدة · وصول لستة أشهر</div>
           <ul class="pricing-features">
             <li><span class="pf-check">◆</span><span>كل ما في STARTER</span></li>
@@ -1502,7 +1507,7 @@
             <li><span class="pf-check">◆</span><span>وصول VIP لكل المحتوى والمواد</span></li>
             <li><span class="pf-check">◆</span><span>استشارات استراتيجية مخصصة</span></li>
           </ul>
-          <a href="#contact" class="pricing-cta">احجز الآن</a>
+          <a href="https://wa.me/212778411421?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%A8%D8%A7%D9%82%D8%A9%20Growth%20%D8%A8%D9%80%20590%20MAD" target="_blank" rel="noopener noreferrer" class="pricing-cta" aria-label="احجز باقة Growth بـ 590 MAD عبر واتساب">احجز الآن</a>
         </div>
       </div>
       <div class="pricing-note">
@@ -1695,7 +1700,7 @@
         <div class="footer-brand">
           <a href="#" class="logo">
             <svg width="24" height="28" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 0L0 18H12L10 32L28 12H16L16 0Z" fill="#16A34A"/>
+              <path d="M16 0L0 18H12L10 32L28 12H16L16 0Z" fill="#C8FF00"/>
             </svg>
             فوري <span class="logo-ai">AI</span>
           </a>
